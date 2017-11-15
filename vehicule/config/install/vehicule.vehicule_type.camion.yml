@@ -1,0 +1,7 @@
+# Ce fichier définit les entité initial à crée à l'instalation du module.
+
+# L'identifiant doit etre unique.
+id: camion
+
+# Label ou le titre.
+label: 'Camion'

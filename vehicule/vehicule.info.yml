@@ -1,0 +1,6 @@
+name: "Exemple : Véhicule"
+type: module
+description: 'Entity API 01 - Exemple des entité'
+package: LivreD8
+core: 8.x
+version: 8.x-1.0.0-dev
