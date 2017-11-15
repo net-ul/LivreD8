@@ -1,0 +1,15 @@
+# Le schema de l'entité vehicule_type.
+
+# Documentation:
+# https://drupal.org/node/1905070
+
+vehicule.vehicule_type.*:
+  type: config_entity
+  label: 'Type De Vehicules'
+  mapping:
+    id:
+      type: string
+      label: 'Identifiant'
+    label:
+      type: label
+      label: 'Nom'
