@@ -1,0 +1,9 @@
+#Administration des entité
+'vehicule admin':
+  title: 'Vehicule Admin'
+  description: 'Administration des entité vehicule'
+
+#Utilisation des entité
+'vehicule use':
+  title: 'Vehicule Use'
+  description: 'Utilisation des entité vehicule'

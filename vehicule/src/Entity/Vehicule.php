@@ -15,6 +15,10 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  * @ContentEntityType(
  *   id = "vehicule",
  *   label = @Translation("Véhicule"),
+ *   handlers = {
+ *     "access" = "Drupal\Core\Entity\EntityAccessControlHandler",
+ *   },
+ *   admin_permission = "vehicule admin",
  *   base_table = "vehicule",
  *   entity_keys = {
  *     "id" = "id",
@@ -25,7 +29,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  * )
  */
 class Vehicule extends ContentEntityBase {
-
+  
   /**
    * {@inheritdoc}
    */
@@ -40,6 +44,7 @@ class Vehicule extends ContentEntityBase {
         ->setLabel(t('Immatriculation'))
         // Ce champ est obligatoire.
         ->setRequired(TRUE)
+        ->setTranslatable(TRUE)
         ->setDescription(t('Le numero d\'immatriculation.'))
         ->setSettings([
         'max_length' => 16,
@@ -65,6 +70,7 @@ class Vehicule extends ContentEntityBase {
     // Sur MySQL, cela utilise le type 'longtext' par conséquent on peut mettre jusqu'à 4GO de données.
     $fields['description'] = BaseFieldDefinition::create('string_long')
       ->setLabel(t('Description'))
+      ->setTranslatable(TRUE)
       ->setDisplayOptions('form', [
         'type' => 'string_textarea',
         'weight' => 10,
@@ -172,7 +178,7 @@ class Vehicule extends ContentEntityBase {
     //map : Un objet sérialisable.
     $fields['data'] = BaseFieldDefinition::create('map')
       ->setLabel(new TranslatableMarkup('Data'));
-
+    
     return $fields;
   }
 
