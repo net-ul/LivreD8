@@ -1,9 +1,14 @@
 #Administration des entité
 'vehicule admin':
-  title: 'Vehicule Admin'
+  title: 'Vehicule - Admin'
   description: 'Administration des entité vehicule'
 
-#Utilisation des entité
-'vehicule use':
-  title: 'Vehicule Use'
+#Voir les entité
+'vehicule view':
+  title: 'Vehicule - Voir'
   description: 'Utilisation des entité vehicule'
+  
+#Création et modifications des entité
+'vehicule edit':
+  title: 'Vehicule - Edition'
+  description: 'Création et modifications des entité véhicule'

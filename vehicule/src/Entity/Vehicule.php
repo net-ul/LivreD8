@@ -16,7 +16,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  *   id = "vehicule",
  *   label = @Translation("Véhicule"),
  *   handlers = {
- *     "access" = "Drupal\Core\Entity\EntityAccessControlHandler",
+ *     "access" = "Drupal\vehicule\VehiculeAccessControlHandler",
  *   },
  *   admin_permission = "vehicule admin",
  *   base_table = "vehicule",
