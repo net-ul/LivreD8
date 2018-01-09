@@ -2,7 +2,7 @@
 
 namespace Drupal\vehicule\Entity;
 
-use Drupal\Core\Config\Entity\ConfigEntityBase;
+use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
 
 /**
  * Définit le type d'entité vehicule_type.
@@ -16,9 +16,10 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     "id" = "id",
  *     "label" = "label"
  *   },
+ *   bundle_of = "vehicule",
  * )
  */
-class TypeDeVehicule extends ConfigEntityBase {
+class TypeDeVehicule extends ConfigEntityBundleBase {
 
   /**
    * L'identifiant de l'entité.

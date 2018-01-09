@@ -9,12 +9,18 @@ entity.vehicule.settings:
 
 # Page d'ajout d'un entité.
 entity.vehicule.add:
-  path: '/vehicule/add'
+  path: '/vehicule/add/{vehicule_type}'
   defaults:
     _entity_form: vehicule.add
     _title: 'Ajouter un Véhicule'
   requirements:
     _entity_create_access: 'vehicule'
 
-
+vehicule.add_page:
+  path: '/vehicule/add'
+  defaults:
+    _title: 'Add vehicule'
+    _controller: '\Drupal\vehicule\Controller\VehiculeController::addPage'
+  requirements:
+    _entity_create_access: 'vehicule'
 
