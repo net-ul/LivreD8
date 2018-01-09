@@ -17,6 +17,17 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  *   label = @Translation("Véhicule"),
  *   handlers = {
  *     "access" = "Drupal\vehicule\VehiculeAccessControlHandler",
+ *     "route_provider" = {
+ *       "html" = "Drupal\vehicule\VehiculeRouteProvider",
+ *     },
+ *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
+ *     "views_data" = "Drupal\views\EntityViewsData",
+ *     "list_builder" = "Drupal\Core\Entity\EntityListBuilder",
+ *     "form" = {
+ *       "default" = "Drupal\Core\Entity\ContentEntityForm",
+ *       "add" = "Drupal\Core\Entity\ContentEntityForm",
+ *       "edit" = "Drupal\Core\Entity\ContentEntityForm",
+ *     },
  *   },
  *   admin_permission = "vehicule admin",
  *   base_table = "vehicule",
@@ -27,6 +38,12 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  *     "numeroserie" = "numeroserie",
  *   }, 
  *   field_ui_base_route = "entity.vehicule.settings",
+ *   links = {
+ *     "canonical" = "/vehicule/{vehicule}",
+ *     "add-form" = "/vehicule/add",
+ *     "edit-form" = "/vehicule/{vehicule}/edit",
+ *     "collection" = "/vehicule/list"
+ *   },
  * )
  */
 class Vehicule extends ContentEntityBase {
@@ -48,9 +65,11 @@ class Vehicule extends ContentEntityBase {
         ->setTranslatable(TRUE)
         ->setDescription(t('Le numero d\'immatriculation.'))
         ->setSettings([
-        'max_length' => 16,
-        'text_processing' => 0,
-      ]);
+          'max_length' => 16,
+          'text_processing' => 0,
+        ])
+        ->setDisplayOptions('form', ['type' => 'string'])
+        ->setDisplayOptions('view', ['label' => 'above', 'type' => 'string']);
     }
 
     // Note : Contrairement aux exemples, pour les chaine de caractére comme label ou description, 
@@ -65,7 +84,9 @@ class Vehicule extends ContentEntityBase {
       ->setLabel(t('Numero de serie')) // Le libellé du champ.
       ->setRequired(TRUE)
       // Nombres de caractères maximum.
-      ->setSetting('max_length', 65);
+      ->setSetting('max_length', 65)
+      ->setDisplayOptions('form', ['type' => 'string'])
+      ->setDisplayOptions('view', ['label' => 'above', 'type' => 'string']);
 
     //string_long : Un texte ou une chaîne de caractères long.
     // Sur MySQL, cela utilise le type 'longtext' par conséquent on peut mettre jusqu'à 4GO de données.
@@ -148,10 +169,7 @@ class Vehicule extends ContentEntityBase {
           'electrique' => 'electrique',
         ],
       ])
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'string',
-      ])
+      ->setDisplayOptions('view', ['label' => 'above', 'type' => 'string' ])
       ->setDisplayOptions('form', ['type' => 'options_select']);
 
     //entity_reference : Référencement d’un entité.
