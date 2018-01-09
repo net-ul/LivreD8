@@ -1,0 +1,17 @@
+# Page de configuration de type d'entité.
+entity.vehicule.settings:
+  path: '/vehicule/settings'
+  defaults:
+    _form: '\Drupal\vehicule\Form\VehiculeSettingsForm'
+    _title: 'Configurations Vehicule'
+  requirements:
+    _permission: 'vehicule admin'
+
+# Page d'ajout d'un entité.
+entity.vehicule.add:
+  path: '/vehicule/add'
+  defaults:
+    _entity_form: vehicule.add
+    _title: 'Ajouter un Véhicule'
+  requirements:
+    _entity_create_access: 'vehicule'

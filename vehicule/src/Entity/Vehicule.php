@@ -25,7 +25,8 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  *     "uuid" = "uuid",
  *     "label" = "immatriculation",
  *     "numeroserie" = "numeroserie",
- *   },
+ *   }, 
+ *   field_ui_base_route = "entity.vehicule.settings",
  * )
  */
 class Vehicule extends ContentEntityBase {
