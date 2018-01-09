@@ -31,11 +31,13 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  *   },
  *   admin_permission = "vehicule admin",
  *   base_table = "vehicule",
+ *   translatable = TRUE,
  *   entity_keys = {
  *     "id" = "id",
  *     "uuid" = "uuid",
  *     "label" = "immatriculation",
  *     "numeroserie" = "numeroserie",
+ *     "langcode" = "langcode",
  *   }, 
  *   field_ui_base_route = "entity.vehicule.settings",
  *   links = {

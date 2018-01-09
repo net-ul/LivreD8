@@ -1,0 +1,10 @@
+# Link tasks (Tabs)
+entity.vehicule.canonical:
+  route_name: entity.vehicule.canonical
+  base_route: entity.vehicule.canonical
+  title: View
+  
+entity.vehicule.edit:
+  route_name: entity.vehicule.edit_form
+  base_route: entity.vehicule.canonical
+  title: Edit
