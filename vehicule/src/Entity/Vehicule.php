@@ -62,7 +62,6 @@ class Vehicule extends ContentEntityBase {
         ->setLabel(t('Immatriculation'))
         // Ce champ est obligatoire.
         ->setRequired(TRUE)
-        ->setTranslatable(TRUE)
         ->setDescription(t('Le numero d\'immatriculation.'))
         ->setSettings([
           'max_length' => 16,
