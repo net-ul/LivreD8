@@ -32,19 +32,23 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  *   admin_permission = "vehicule admin",
  *   base_table = "vehicule",
  *   translatable = TRUE,
+ *   revision_table = "vehicule_revision",
+ *   revision_data_table = "vehicule_field_revision",
+ *   show_revision_ui = TRUE,
  *   entity_keys = {
  *     "id" = "id",
  *     "uuid" = "uuid",
  *     "label" = "immatriculation",
  *     "numeroserie" = "numeroserie",
  *     "langcode" = "langcode",
+ *     "revision" = "vid",
  *   }, 
  *   field_ui_base_route = "entity.vehicule.settings",
  *   links = {
  *     "canonical" = "/vehicule/{vehicule}",
  *     "add-form" = "/vehicule/add",
  *     "edit-form" = "/vehicule/{vehicule}/edit",
- *     "collection" = "/vehicule/list"
+ *     "collection" = "/vehicule/list",
  *   },
  * )
  */
@@ -93,6 +97,7 @@ class Vehicule extends ContentEntityBase {
     // Sur MySQL, cela utilise le type 'longtext' par conséquent on peut mettre jusqu'à 4GO de données.
     $fields['description'] = BaseFieldDefinition::create('string_long')
       ->setLabel(t('Description'))
+      ->setRevisionable(TRUE)
       ->setTranslatable(TRUE)
       ->setDisplayOptions('form', [
         'type' => 'string_textarea',
